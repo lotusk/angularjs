@@ -1,0 +1,157 @@
+@(title: String)
+<!doctype html>
+<html ng-app>
+<head>
+    <style type="text/css">
+        .menu-disabled-true{
+            color:gray;
+        }
+
+        .error{
+            background-color:red;
+        }
+
+        .warning{
+            background-color:yellow;
+        }
+
+        .selected{
+            background-color:lightgreen;
+        }
+    </style>
+    <script src="@routes.Assets.at("javascripts/angular.js")"></script>
+
+    <script>
+        function StartUpController($scope){
+            $scope.funding={startingEstimate:0};
+
+            computeNeeded=function(){
+                <!--alert("aaa")-->
+                $scope.funding.needed =  $scope.funding.startingEstimate * 10
+            }
+
+            $scope.$watch('funding.startingEstimate',computeNeeded)
+        }
+
+        function HelloController($scope) {
+            $scope.greeting = {text:'my'}
+        }
+
+        var students=[{name:'Mary Contrary',id:'1'},
+        {name:'Jack Sprat',id:'2'},
+        {name:'Jill Hill',id:'3'}]
+
+        function  StudentListController($scope){
+            $scope.students=students
+
+            $scope.insertTom=function(){
+                $scope.students.splice(1,0,{name:'Tom Thumb',id:'4'})
+            }
+        }
+
+
+        function  DeathrayMenuController($scope){
+            $scope.menuState={}
+            $scope.menuState.show=false
+
+            $scope.isDisabled=false
+            $scope.toggleMenu=function(){
+               $scope.menuState.show= ! $scope.menuState.show
+            }
+
+            $scope.stun=function(){
+                $scope.isDisabled='true'
+            }
+        }
+
+        function HeaderController($scope){
+
+            $scope.isWarning=true
+            $scope.isError=false
+
+            $scope.showError=function(){
+                $scope.messageText='This is an error'
+                $scope.isWarning=false
+                $scope.isError=true
+            }
+
+            $scope.showWarning=function(){
+                $scope.messageText='Just a warning . Please carry on.'
+                $scope.isWarning=true
+                $scope.isError=false
+            }
+        }
+
+        function RestaurantTableController($scope){
+            <!--alert("aa")-->
+            $scope.directory=[{name:'The Handsome Heifer',cuisine:'BBQ'},
+                            {name:'Green s Green Greens',cuisine:'Salads'},
+                            {name:'House of Fine Fish',cuisine:'Seafood'}]
+
+            <!--alert($scope.directory)-->
+
+            $scope.selectRestaurant=function(row){
+                $scope.selectedRow=row
+            }
+        }
+
+        function CountController($scope){
+
+        }
+
+
+    </script>
+</head>
+<body>
+    <div ng-controller='HelloController'>
+        <input ng-model='greeting.text'/>
+        <p>{{greeting.text}},World1</p>
+    </div>
+
+    <form ng-controller='StartUpController'>
+        Starting1:<input ng-model="funding.startingEstimate">
+        Recommendation:{{funding.needed}}
+        Test:{{funding.startingEstimate}}
+    </form>
+     --------------------------
+    <ul ng-controller='StudentListController'>
+      <li ng-repeat='student in students'>
+          <a href="/student/view/{{student.id}}">{{student.name}}</a>
+
+      </li>
+        <button ng-click="insertTom()">Insert</button>
+    </ul>
+
+    <div ng-controller='DeathrayMenuController'>
+        <button ng-click='toggleMenu()'>Toggle Menu</button>
+        <ul ng-show='menuState.show'>
+            <li class="menu-disabled-{{isDisabled}}" ng-click='stun()'>Stun</li>
+            <li ng-click='disintegrate()'>Disintegrate</li>
+            <li ng-click='erase()'>Erase</li>
+        </ul>
+    </div>
+
+    <div ng-controller='HeaderController'>
+        <div ng-class='{"error":isError,"warning":isWarning}'>{{messageText}}</div>
+        <button ng-click='showError()'>Simulate Error</button>
+        <button ng-click='showWarning()'>Simulate Warning</button>
+    </div>
+
+    <hr>
+    <div>
+      <table ng-controller='RestaurantTableController'>
+          <tr ng-repeat='restaurant in directory' ng-click='selectRestaurant($index)' ng-class='{selected : $index==selectedRow}'>
+              <td>{{restaurant.name}}</td>
+              <td>{{restaurant.cuisine}}</td>
+          </tr>
+      </table>
+    </div>
+
+    <div ng-controller='CountController'>
+        {{count}}
+        <button ng-click="count=3">count</button>
+    </div>
+
+</body>
+</html>
+
