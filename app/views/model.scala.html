@@ -19,7 +19,7 @@
         })
 
         shoppingModule.controller('ShoppingModule',function($scope,Items){
-            $scope.item= Items.query()[0]
+            $scope.items= Items.query()
         })
     </script>
 
@@ -30,7 +30,7 @@
     <h1>Shop</h1>
 
     <table>
-        <tr>
+        <tr ng-repeat='item in items'>
             <td>{{item.title}}</td>
             <td>{{item.quantity}}</td>
             <td>{{item.price}}</td>
