@@ -26,6 +26,14 @@ object Application extends Controller {
     Ok(views.html.shopingcart2("title"))
   }
 
+  def shopingcart3 = Action {
+    Ok(views.html.shopingcart3("title"))
+  }
+
+  def model = Action {
+    Ok(views.html.model("title"))
+  }
+
   def first = Action {
     Ok(views.html.first("title"))
   }
