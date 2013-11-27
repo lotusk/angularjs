@@ -34,6 +34,10 @@ object Application extends Controller {
     Ok(views.html.model("title"))
   }
 
+  def homemodel = Action {
+    Ok(views.html.homemodel("title"))
+  }
+
   def first = Action {
     Ok(views.html.first("title"))
   }
