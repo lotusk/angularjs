@@ -1,0 +1,54 @@
+@(title: String)
+<!doctype html>
+<html ng-app="AMail">
+<head>
+    <script src="@routes.Assets.at("javascripts/angular.js")"></script>
+    <script>
+        var aMailServices=angular.module('AMail',[])
+
+        function emailRouteConfig($routeProvider){
+            $routeProvider.
+            when('/',{
+                controller:ListController,
+                templateUrl:'/assets/antemplate/list.html'
+            }).
+            when('view/:id',{
+                controller:DetailController,
+                templateUrl:'/assets/antemplate/detail.html'
+            }).
+            otherwise({redirectTo:'/'})
+        }
+        aMailServices.config(emailRouteConfig)
+
+        messages=[{
+            id:0,sender:'jean@@somecompany.com',subject:'Hi there ,old friend',
+            date:'Dec 7,2013 12:32:00',recipients:['greg@@somecompany.com'],
+            message:'Hey ,we should get together for lunch sometime and catch up.'+
+            'There are many things we should collaborate on this year'
+        },
+        {
+        id:1,sender:'maria@@somecompany.com',subject:'Where did you leave my laptop?',
+        date:'Dec 7,2013 12:32:00',recipients:['greg@@somecompany.com'],
+        message:'Hey ,we should get together for lunch sometime and catch up.'+
+        'There are many things we should collaborate on this year'
+        }
+        ]
+
+        function ListController($scope){
+            $scope.messages=messages
+        }
+
+        function DetailController($scope,$routeParams){
+            $scope.message=messages[$routeParams.id]
+        }
+
+    </script>
+
+    <title>first route web</title>
+</head>
+<body>
+<h1>A-Mail</h1>
+<div ng-view></div>
+</body>
+</html>
+

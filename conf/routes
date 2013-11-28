@@ -20,5 +20,6 @@ GET     /book/shopingcart2                           controllers.Application.sho
 GET     /book/shopingcart3                           controllers.Application.shopingcart3
 GET     /book/model                           controllers.Application.model
 GET     /book/homemodel                           controllers.Application.homemodel
+GET     /book/routefirst                           controllers.Application.routefirst
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

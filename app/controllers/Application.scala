@@ -38,6 +38,10 @@ object Application extends Controller {
     Ok(views.html.homemodel("title"))
   }
 
+  def routefirst = Action {
+    Ok(views.html.routefirst("title"))
+  }
+
   def first = Action {
     Ok(views.html.first("title"))
   }
