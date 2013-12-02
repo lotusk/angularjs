@@ -21,5 +21,7 @@ GET     /book/shopingcart3                           controllers.Application.sho
 GET     /book/model                           controllers.Application.model
 GET     /book/homemodel                           controllers.Application.homemodel
 GET     /book/routefirst                           controllers.Application.routefirst
+GET     /book/shoppingWithServer                           controllers.Application.shoppingWithServer
+GET     /ajax/products                           controllers.AjaxApplication.products
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

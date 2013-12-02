@@ -66,5 +66,14 @@ object Application extends Controller {
   def step4=Action{
     Ok("hello")
   }
+
+
+  def shoppingWithServer=Action {
+    Ok(views.html.shoppingWithServer("title"))
+  }
+
+  def directive=Action{
+
+  }
   
 }

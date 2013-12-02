@@ -1,0 +1,30 @@
+@(title: String)
+<!doctype html>
+<html ng-app="myapp">
+<head>
+    <script src="@routes.Assets.at("javascripts/angular.js")"></script>
+    <script>
+        var myAppModule=angular.module('myapp',[])
+
+        myAppModule.controller('CartController',function($scope,$http){
+            $http.get('/ajax/products').success(function(data,status,headers,config){
+                $scope.items=data
+            })
+        })
+    </script>
+
+    <title>Your Shopping Cart</title>
+</head>
+<body>
+<div ng-controller='CartController'>
+    <h1>Shop!</h1>
+
+    <div ng-repeat='item in items'>
+        <span>{{item.title}}</span>
+        <span>{{item.description}}</span>
+        <span>{{item.price |currency}}</span>
+    </div>
+</div>
+</body>
+</html>
+

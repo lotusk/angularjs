@@ -10,7 +10,8 @@ object ApplicationBuild extends Build {
   val appDependencies = Seq(
     // Add your project dependencies here,
     jdbc,
-    anorm
+    anorm ,
+    "org.json4s" % "json4s-native_2.10" % "3.2.5"
   )
 
 
