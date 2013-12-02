@@ -73,7 +73,7 @@ object Application extends Controller {
   }
 
   def directive=Action{
-
+    Ok("hello")
   }
   
 }
