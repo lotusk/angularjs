@@ -23,5 +23,7 @@ GET     /book/homemodel                           controllers.Application.homemo
 GET     /book/routefirst                           controllers.Application.routefirst
 GET     /book/shoppingWithServer                           controllers.Application.shoppingWithServer
 GET     /ajax/products                           controllers.AjaxApplication.products
+GET     /book/directive                           controllers.Application.directive
+GET     /book/register                           controllers.Application.register
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

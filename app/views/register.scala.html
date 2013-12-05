@@ -1,0 +1,37 @@
+@(title: String)
+<!doctype html>
+<html ng-app="myapp">
+<head>
+    <script src="@routes.Assets.at("javascripts/angular.js")"></script>
+    <script>
+        var myAppModule=angular.module('myapp',[])
+
+        myAppModule.controller('AddUserController',function($scope){
+            $scope.message='Welcome to Earth,ready for register'
+
+            $scope.addUser=function(){
+                $scope.message='Thanks,'+$scope.user.first+', we added you!'
+            }
+        })
+    </script>
+
+    <title>Your Shopping Cart</title>
+</head>
+<body>
+<div ng-controller='AddUserController'>
+    <h1>Sign Up</h1>
+
+    <form name='addUserForm'>
+        <div ng-show='message'>{{message}}</div>
+        <div>First name:<input ng-model='user.first' required></div>
+        <div>Last name:<input ng-model='user.last' required></div>
+        <div>Email:<input type='email' name="email" ng-model='user.email' placeholder="Email Address" required></div>
+        <span class="error" ng-show="addUserForm.email.$error.email">
+        Not valid email!</span>
+        <div>Age:<input type='number' ng-model='user.age' ng-maxlength='3' ng-minlength='1'></div>
+        <div><button ng-click='addUser()' ng-disabled='!addUserForm.$valid'>Submit</button></div>
+    </form>
+</div>
+</body>
+</html>
+

@@ -17,5 +17,7 @@ object AjaxApplication extends Controller {
     val pro2=("id"->1) ~ ("title"->"Polka dots") ~ ("description"->"Dots with that polka groove") ~("price"->12.95)
     val pro3=("id"->2) ~ ("title"->"Pebbles") ~ ("description"->"Just little rocks,really") ~("price"->6.95)
     Ok(compact(JsonMethods.render(List(pro1,pro2,pro3))))
+
+
   }
 }

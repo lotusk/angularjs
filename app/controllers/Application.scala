@@ -73,7 +73,12 @@ object Application extends Controller {
   }
 
   def directive=Action{
-    Ok("hello")
+    Ok(views.html.directive("title"))
+  }
+
+
+  def register=Action{
+    Ok(views.html.register("title"))
   }
   
 }
