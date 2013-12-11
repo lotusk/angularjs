@@ -78,6 +78,7 @@ object Application extends Controller {
 
 
   def register=Action{
+
     Ok(views.html.register("title"))
   }
   
