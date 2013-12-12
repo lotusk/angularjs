@@ -1,0 +1,37 @@
+@(title: String)
+<!doctype html>
+<html ng-app="guthub">
+<head>
+    <script src="@routes.Assets.at("javascripts/angular.min.js")"></script>
+    <script src="@routes.Assets.at("javascripts/angular-resource.min.js")"></script>
+    <script src="@routes.Assets.at("js/book/directives.js")"></script>
+    <script src="@routes.Assets.at("js/book/services.js")"></script>
+    <script src="@routes.Assets.at("js/book/controllers.js")"></script>
+    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/bootstrap.css")">
+    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/guthub.css")">
+    <script>
+
+    </script>
+
+    <title>GutHub - Create and Share</title>
+</head>
+<body>
+<header>
+    <h1>GutHub</h1>
+</header>
+
+<div butterbar>Loading...</div>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span2">
+            <!--Sidebar-->
+            <div id="focus"><a href="/#/new">New Recipe</a> </div>
+            <div><a href="/#/">Recipe List</a> </div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
+

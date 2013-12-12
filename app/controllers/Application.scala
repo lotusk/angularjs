@@ -72,7 +72,8 @@ object Application extends Controller {
     Ok(views.html.shoppingWithServer("title"))
   }
 
-  def directive=Action{
+  def directive=Action{request=>
+    request.body.asFormUrlEncoded
     Ok(views.html.directive("title"))
   }
 
@@ -81,5 +82,13 @@ object Application extends Controller {
 
     Ok(views.html.register("title"))
   }
-  
+
+
+  def echo=Action { request =>
+    Ok("Got request [" + request + "]")
+  }
+
+  def echopost=Action(parse.urlFormEncoded) { request =>
+    Ok("Got request [" + request.body + "]")
+  }
 }

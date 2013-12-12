@@ -20,7 +20,18 @@ app.config(['$routeProvider',function($routeProvider){
                 }
             },
             templateUrl:'/assets/recipe/recipeForm.html'
-        })
+        }).when('/view/:recipeId',{
+            controller:'ViewCtrl',
+            resolve:{
+                recipe:function(RecipeLoader) {
+                    return RecipeLoader()
+                }
+            },
+            templateUrl:'/assets/recipe/recipeForm.html'
+        }).when('/new',{
+            controller:'NewCtrl',
+            templateUrl:'/assets/recipe/recipeForm.html'
+        }).otherwise(redirectTo:'/')
 }])
 
 app.controller('ListCtrl',['$scope','recipes',function($scope,recipes){
