@@ -91,4 +91,8 @@ object Application extends Controller {
   def echopost=Action(parse.urlFormEncoded) { request =>
     Ok("Got request [" + request.body + "]")
   }
+
+  def guthub=Action{
+    Ok(views.html.guthub("title"))
+  }
 }
